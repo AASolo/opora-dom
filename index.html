@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     try {
@@ -37,7 +37,7 @@
   </script>
 </head>
 <body>
-  <div class="demo-bar">Демо-концепт сайта. Телефон, ссылки и отзывы условные, форма не отправляет данные. Вместо рисунков будут фото домов заказчика.</div>
+  <div class="demo-bar">Демо-концепт сайта. Телефон, ссылки и отзывы условные, форма не отправляет данные. В рамках будут фото домов заказчика.</div>
 
   <header class="header" id="top">
     <div class="container header__inner">
@@ -46,7 +46,7 @@
         <span class="logo__text">Ваше название<small>общественные дома</small></span>
       </a>
       <nav class="nav" id="nav" aria-label="Основное меню">
-        <a href="#help">Помощь</a>
+        <a href="#who">Кому помогаем</a>
         <a href="#steps">Как попасть</a>
         <a href="#rules">Условия</a>
         <a href="#cities">Города</a>
@@ -99,8 +99,8 @@
       <div class="container hero__grid">
         <div class="hero__text">
           <span class="badge"><span class="dot"></span>Принимаем сегодня, места есть</span>
-          <h1>Жильё. Еда. <span class="accent">Работа.</span> С первого дня.</h1>
-          <p class="lead">Бесплатное проживание и питание, оплата за каждый отработанный день. Заселяем в день звонка в 19 городах России.</p>
+          <h1>Жильё, еда и работа <span class="accent">с первого дня</span></h1>
+          <p class="lead">Помогаем взрослым, которые остались без крыши над головой: после освобождения, без документов, без поддержки близких. Бесплатно и без осуждения. Заселяем в день звонка в 19 городах России.</p>
           <div class="hero__cta">
             <a class="btn btn--primary btn--lg" href="tel:+78000000000">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
@@ -109,54 +109,12 @@
             <a class="btn btn--soft btn--lg" href="#apply">Оставить заявку</a>
           </div>
         </div>
-        <figure class="ill-frame ill-frame--hero photo-slot" data-photo="hero">
-          <svg class="ill" viewBox="0 0 560 600" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Тёплый дом, у калитки встречают жильцы">
-            <defs><linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--sky-1)"/><stop offset=".75" style="stop-color:var(--sky-2)"/></linearGradient></defs>
-            <rect width="560" height="600" fill="url(#gSky)"/>
-            <g class="il-stars"><circle cx="70" cy="70" r="2"/><circle cx="150" cy="40" r="1.6"/><circle cx="240" cy="90" r="2"/><circle cx="320" cy="50" r="1.4"/><circle cx="520" cy="60" r="2"/><circle cx="500" cy="200" r="1.6"/><circle cx="40" cy="190" r="1.6"/></g>
-            <circle cx="430" cy="130" r="56" style="fill:var(--sun)"/>
-            <circle cx="430" cy="130" r="80" style="fill:var(--sun)" opacity=".18"/>
-            <g style="fill:var(--cloud)"><ellipse cx="120" cy="140" rx="54" ry="20"/><ellipse cx="150" cy="126" rx="34" ry="22"/><ellipse cx="300" cy="80" rx="40" ry="14"/><ellipse cx="322" cy="70" rx="24" ry="15"/></g>
-            <path d="M80 210q10-10 20 0q10-10 20 0M170 240q7-7 14 0q7-7 14 0" fill="none" style="stroke:var(--bird)" stroke-width="3" stroke-linecap="round"/>
-            <path d="M0 400Q140 330 280 380T560 350V600H0Z" style="fill:var(--hill-2)"/>
-            <path d="M0 470Q280 430 560 470V600H0Z" style="fill:var(--hill-1)"/>
-            <rect x="330" y="215" width="26" height="70" rx="3" style="fill:var(--roof)"/>
-            <g style="fill:var(--cloud)" opacity=".85"><circle cx="346" cy="196" r="12"/><circle cx="360" cy="172" r="15"/><circle cx="380" cy="146" r="18"/></g>
-            <rect x="150" y="300" width="240" height="172" rx="6" style="fill:var(--wall)"/>
-            <path d="M126 314 270 196 414 314Z" style="fill:var(--roof)" stroke-linejoin="round"/>
-            <circle cx="270" cy="268" r="19" style="fill:var(--window)"/>
-            <rect x="176" y="338" width="60" height="54" rx="8" style="fill:var(--window)"/>
-            <rect x="304" y="338" width="60" height="54" rx="8" style="fill:var(--window)"/>
-            <path d="M206 338v54M176 365h60M334 338v54M304 365h60M270 249v38M251 268h38" style="stroke:var(--wall)" stroke-width="4"/>
-            <path d="M244 472v-56a26 26 0 0 1 52 0v56Z" style="fill:var(--door)"/>
-            <circle cx="285" cy="444" r="3.5" style="fill:var(--window)"/>
-            <path d="M244 472h52l46 128H196Z" style="fill:var(--path)"/>
-            <rect x="452" y="372" width="14" height="110" rx="5" style="fill:var(--trunk)"/>
-            <g style="fill:var(--leaf)"><circle cx="459" cy="350" r="50"/><circle cx="426" cy="388" r="34"/><circle cx="494" cy="386" r="34"/></g>
-            <g style="fill:var(--leaf-2)"><circle cx="110" cy="468" r="26"/><circle cx="78" cy="476" r="19"/><circle cx="140" cy="478" r="16"/></g>
-            <g style="fill:var(--wall)" opacity=".9"><rect x="16" y="470" width="10" height="44" rx="5"/><rect x="40" y="470" width="10" height="44" rx="5"/><rect x="510" y="470" width="10" height="44" rx="5"/><rect x="534" y="470" width="10" height="44" rx="5"/><rect x="10" y="482" width="50" height="7" rx="3"/><rect x="504" y="482" width="50" height="7" rx="3"/></g>
-            <g>
-              <path d="M184 520 212 486" style="stroke:var(--shirt-1)" stroke-width="13" stroke-linecap="round"/>
-              <circle cx="214" cy="482" r="8" style="fill:var(--skin)"/>
-              <rect x="146" y="562" width="13" height="30" rx="6" style="fill:var(--pants)"/><rect x="164" y="562" width="13" height="30" rx="6" style="fill:var(--pants)"/>
-              <rect x="138" y="500" width="48" height="70" rx="22" style="fill:var(--shirt-1)"/>
-              <circle cx="162" cy="482" r="18" style="fill:var(--skin)"/>
-              <path d="M144 478a18 18 0 0 1 36 0q-8-9-18-8t-18 8Z" style="fill:var(--hair)"/>
-            </g>
-            <g>
-              <rect x="362" y="560" width="13" height="32" rx="6" style="fill:var(--pants)"/><rect x="380" y="560" width="13" height="32" rx="6" style="fill:var(--pants)"/>
-              <rect x="352" y="496" width="52" height="72" rx="24" style="fill:var(--shirt-2)"/>
-              <circle cx="378" cy="476" r="19" style="fill:var(--skin-2)"/>
-              <path d="M359 474a19 19 0 0 1 38 0q-6-12-19-12t-19 12Z" style="fill:var(--hair)"/>
-              <rect x="396" y="530" width="26" height="22" rx="5" style="fill:var(--shirt-3)"/>
-            </g>
-            <g>
-              <ellipse cx="308" cy="590" rx="16" ry="5" fill="#000" opacity=".08"/>
-              <path d="M296 588c0-16 6-26 12-26s12 10 12 26Z" style="fill:var(--hair)"/>
-              <circle cx="308" cy="556" r="10" style="fill:var(--hair)"/><path d="M300 549l2-9 5 6M316 549l-2-9-5 6" style="fill:var(--hair)"/>
-            </g>
-          </svg>
-          <figcaption class="ill-frame__chip"><i>🏠</i>Заселяем в день звонка</figcaption>
+        <figure class="frame frame--hero photo-slot" data-photo="hero">
+          <div class="frame__photo"><span class="frame__label">Место для фото дома</span></div>
+          <blockquote class="frame__quote">
+            <p>«Освободился с одной справкой на руках. Ехать было некуда. Здесь в первый же вечер дали кровать и ужин, а через месяц я получил паспорт».</p>
+            <cite>Сергей, 44 года · Саратов</cite>
+          </blockquote>
         </figure>
       </div>
       <div class="container">
@@ -165,6 +123,24 @@
           <li><b>19</b><span>городов России</span></li>
           <li><b>Каждый день</b><span>выплаты за работу</span></li>
           <li><b>24/7</b><span>на связи</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="who">
+      <div class="container">
+        <div class="head">
+          <span class="eyebrow">Кому помогаем</span>
+          <h2>Если вы оказались в одной из этих ситуаций, звоните</h2>
+          <p>Не важно, что было в прошлом. Важно, что вы готовы работать и соблюдать правила дома.</p>
+        </div>
+        <ul class="who">
+          <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v18M10 3v18M15 3v18M20 3v18M3 8h19"/></svg><div><h3>Вышли из мест лишения свободы</h3><p>Поможем встать на ноги после освобождения: жильё, работа, документы.</p></div></li>
+          <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10"/><path d="m4 20 16-16"/></svg><div><h3>Остались без жилья</h3><p>Потеряли квартиру, выгнали, некуда пойти сегодня вечером.</p></div></li>
+          <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h5M15 15l4 4M19 15l-4 4"/></svg><div><h3>Нет документов</h3><p>Украли, потеряли или забрали паспорт. Проведём через восстановление.</p></div></li>
+          <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 9h5"/></svg><div><h3>Родные отвернулись</h3><p>Остались один на один с бедой и не знаете, к кому обратиться.</p></div></li>
+          <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h3>Обманули с работой</h3><p>Приехали на заработки, не заплатили, нет денег на обратную дорогу.</p></div></li>
+          <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M4 10c4-6 12-6 16 0M20 10v10M9 20v-5h6v5"/></svg><div><h3>Хотите начать заново</h3><p>Готовы бросить прошлое, работать и вернуться к нормальной жизни.</p></div></li>
         </ul>
       </div>
     </section>
@@ -205,37 +181,9 @@
 
     <section class="section section--gray" id="rules">
       <div class="container split">
-        <figure class="ill-frame ill-frame--room photo-slot reveal" data-photo="room">
-          <svg class="ill" viewBox="0 0 560 460" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Уютная комната с кроватью, лампой и растением">
-            <rect width="560" height="460" style="fill:var(--room-wall)"/>
-            <rect y="350" width="560" height="110" style="fill:var(--floor)"/>
-            <rect x="300" y="60" width="170" height="150" rx="10" style="fill:var(--sky-1)"/>
-            <circle cx="420" cy="110" r="26" style="fill:var(--sun)"/>
-            <path d="M300 180q60-30 170 0v30H300Z" style="fill:var(--hill-1)"/>
-            <path d="M385 60v150M300 135h170" style="stroke:var(--wall)" stroke-width="7"/>
-            <rect x="296" y="56" width="178" height="158" rx="12" fill="none" style="stroke:var(--wood)" stroke-width="8"/>
-            <path d="M280 48h210" style="stroke:var(--wood)" stroke-width="6" stroke-linecap="round"/>
-            <path d="M286 52q-8 90 10 170h26q-20-80-12-170Z" style="fill:var(--blanket)" opacity=".85"/>
-            <path d="M484 52q8 90-10 170h-26q20-80 12-170Z" style="fill:var(--blanket)" opacity=".85"/>
-            <rect x="74" y="90" width="110" height="80" rx="8" style="fill:var(--wall)"/>
-            <rect x="84" y="100" width="90" height="60" rx="4" style="fill:var(--tint-sky, #dceafa)"/>
-            <path d="M84 160l30-30 22 18 16-12 22 24Z" style="fill:var(--leaf)"/>
-            <rect x="50" y="250" width="280" height="90" rx="14" style="fill:var(--wood)"/>
-            <rect x="40" y="200" width="24" height="170" rx="8" style="fill:var(--wood)"/>
-            <rect x="60" y="232" width="262" height="58" rx="16" style="fill:var(--wall)"/>
-            <rect x="72" y="214" width="76" height="40" rx="16" style="fill:var(--cloud)"/>
-            <path d="M140 236h182a14 14 0 0 1 14 14v52a14 14 0 0 1-14 14H140Z" style="fill:var(--blanket)"/>
-            <path d="M180 236v80M220 236v80M260 236v80M300 236v80" style="stroke:var(--blanket-2)" stroke-width="8" opacity=".7"/>
-            <rect x="346" y="276" width="70" height="74" rx="8" style="fill:var(--wood)"/>
-            <rect x="356" y="296" width="50" height="6" rx="3" style="fill:var(--room-wall)" opacity=".5"/>
-            <rect x="377" y="236" width="8" height="40" style="fill:var(--door)"/>
-            <path d="M360 240h42l-10-34h-22Z" style="fill:var(--lamp)"/>
-            <ellipse cx="381" cy="260" rx="60" ry="40" style="fill:var(--lamp)" opacity=".18"/>
-            <rect x="462" y="300" width="50" height="50" rx="8" style="fill:var(--roof)"/>
-            <g style="fill:var(--leaf)"><ellipse cx="470" cy="276" rx="14" ry="30" transform="rotate(-20 470 276)"/><ellipse cx="500" cy="272" rx="14" ry="32" transform="rotate(18 500 272)"/><ellipse cx="486" cy="262" rx="12" ry="36"/></g>
-            <ellipse cx="200" cy="410" rx="150" ry="26" style="fill:var(--blanket-2)" opacity=".55"/>
-          </svg>
-          <figcaption class="ill-frame__chip"><i>🛏️</i>Чистые комнаты на 2–4 человека</figcaption>
+        <figure class="frame frame--room photo-slot reveal" data-photo="room">
+          <div class="frame__photo"><span class="frame__label">Место для фото комнаты</span></div>
+          <figcaption class="frame__cap">Комнаты на 2–4 человека, чистое бельё, душ и стирка</figcaption>
         </figure>
         <div>
           <span class="eyebrow">Честные условия</span>
@@ -281,10 +229,10 @@
           </div>
         </div>
         <div class="reviews" id="reviewsTrack">
-          <figure class="review"><div class="stars">★★★★★</div><blockquote>Приехал без денег и без паспорта. Через месяц восстановил документы и накопил на съём комнаты.</blockquote><figcaption><span class="avatar">А</span><div><strong>Александр, 46 лет</strong><small>Саратов · жил 3 месяца</small></div></figcaption></figure>
-          <figure class="review"><div class="stars">★★★★★</div><blockquote>Работа каждый день, деньги вечером на руки. Сейчас работаю официально и снимаю своё жильё.</blockquote><figcaption><span class="avatar">Н</span><div><strong>Николай, 38 лет</strong><small>Самара · жил 2 месяца</small></div></figcaption></figure>
-          <figure class="review"><div class="stars">★★★★★</div><blockquote>Встретили прямо на вокзале, в тот же вечер был ужин и кровать. Всё честно, как обещали по телефону.</blockquote><figcaption><span class="avatar">Д</span><div><strong>Дмитрий, 52 года</strong><small>Казань · живёт сейчас</small></div></figcaption></figure>
-          <figure class="review"><div class="stars">★★★★★</div><blockquote>Работаю на кухне до двух, потом свободна. Чисто, тепло, есть с кем поговорить. Это мой новый старт.</blockquote><figcaption><span class="avatar">Е</span><div><strong>Елена, 41 год</strong><small>Воронеж · жила 4 месяца</small></div></figcaption></figure>
+          <figure class="review"><div class="stars">★★★★★</div><blockquote>Освободился в марте, родные не приняли. Здесь сразу дали койку и работу. Через два месяца восстановил паспорт и устроился официально.</blockquote><figcaption><span class="avatar">С</span><div><strong>Сергей, 44 года</strong><small>Саратов · жил 3 месяца</small></div></figcaption></figure>
+          <figure class="review"><div class="stars">★★★★★</div><blockquote>Пять лет жил где придётся. Думал, уже не выберусь. Сейчас снимаю комнату и работаю на складе.</blockquote><figcaption><span class="avatar">В</span><div><strong>Виктор, 51 год</strong><small>Самара · жил 4 месяца</small></div></figcaption></figure>
+          <figure class="review"><div class="stars">★★★★★</div><blockquote>Встретили на вокзале, в тот же вечер ужин и кровать. Никто не спрашивал про прошлое. Всё честно, как обещали по телефону.</blockquote><figcaption><span class="avatar">Д</span><div><strong>Дмитрий, 39 лет</strong><small>Казань · живёт сейчас</small></div></figcaption></figure>
+          <figure class="review"><div class="stars">★★★★★</div><blockquote>После развода осталась на улице без копейки. Работаю на кухне, коплю на своё жильё. Здесь меня снова начали уважать.</blockquote><figcaption><span class="avatar">Е</span><div><strong>Елена, 47 лет</strong><small>Воронеж · жила 5 месяцев</small></div></figcaption></figure>
         </div>
         <p class="note">Отзывы в демо приведены для примера оформления.</p>
       </div>
@@ -299,6 +247,7 @@
         <div class="faq">
           <details open><summary>Что такое общественный дом?</summary><p>Дом, где человек в трудной ситуации получает бесплатное жильё и питание, работает на проверенных объектах и каждый день получает оплату. Так можно быстро накопить денег и вернуться к самостоятельной жизни.</p></details>
           <details><summary>Кому вы помогаете?</summary><p>Совершеннолетним, кто остался без жилья, работы или документов, приехал в чужой город или просто оказался в тупике. Главное условие: готовность работать и соблюдать правила.</p></details>
+          <details><summary>Берёте после заключения?</summary><p>Да. Многие наши жители пришли к нам сразу после освобождения. Прошлое не важно, важно соблюдать правила дома.</p></details>
           <details><summary>Сколько это стоит?</summary><p>Нисколько. Жильё, питание, одежда и помощь с документами бесплатны.</p></details>
           <details><summary>Какая работа и сколько платят?</summary><p>Разнорабочие, грузчики, уборка, кухня. Оплату называем заранее, деньги выдаём в конце каждого рабочего дня.</p></details>
           <details><summary>Что взять с собой?</summary><p>Документы, если есть. Если нет, приезжайте без них: поможем восстановить. Одежду и средства гигиены выдадим.</p></details>

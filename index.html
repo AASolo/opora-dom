@@ -18,7 +18,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
-    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    try {
+      var d = document.documentElement, t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      var a = JSON.parse(localStorage.getItem('a11y') || 'null');
+      if (a && a.on) { d.setAttribute('data-a11y', ''); d.setAttribute('data-a11y-size', a.size || '1'); d.setAttribute('data-a11y-color', a.color || 'bw'); d.setAttribute('data-a11y-img', a.img || 'on'); d.setAttribute('data-a11y-space', a.space || 'normal'); }
+    } catch (e) {}
   </script>
   <script type="application/ld+json">
   {
@@ -32,7 +37,7 @@
   </script>
 </head>
 <body>
-  <div class="demo-bar">Демо-концепт сайта. Телефон, ссылки и отзывы условные, форма не отправляет данные. В рамках будут фото клиента.</div>
+  <div class="demo-bar">Демо-концепт сайта. Телефон, ссылки и отзывы условные, форма не отправляет данные. Вместо рисунков будут фото домов заказчика.</div>
 
   <header class="header" id="top">
     <div class="container header__inner">
@@ -49,12 +54,43 @@
       </nav>
       <a class="header__phone" href="tel:+78000000000">8 800 000-00-00<small>бесплатно, круглосуточно</small></a>
       <a class="btn btn--primary btn--sm header__btn" href="#apply">Оставить заявку</a>
+      <button class="theme-toggle a11y-toggle" id="a11yToggle" type="button" aria-controls="a11yPanel" aria-expanded="false" title="Версия для слабовидящих">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Для слабовидящих</span>
+      </button>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
         <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
         <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <span>Тема</span>
       </button>
       <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    </div>
+    <div class="a11y-panel" id="a11yPanel" role="region" aria-label="Настройки для слабовидящих" hidden>
+      <div class="container a11y-panel__inner">
+        <div class="a11y-group" role="group" aria-label="Размер шрифта">
+          <span class="a11y-label">Размер шрифта</span>
+          <button type="button" data-a11y-set="size" data-value="1" class="a11y-btn a11y-btn--s1">А</button>
+          <button type="button" data-a11y-set="size" data-value="2" class="a11y-btn a11y-btn--s2">А</button>
+          <button type="button" data-a11y-set="size" data-value="3" class="a11y-btn a11y-btn--s3">А</button>
+        </div>
+        <div class="a11y-group" role="group" aria-label="Цвета сайта">
+          <span class="a11y-label">Цвета</span>
+          <button type="button" data-a11y-set="color" data-value="bw" class="a11y-btn a11y-sw a11y-sw--bw" aria-label="Чёрным по белому">Ц</button>
+          <button type="button" data-a11y-set="color" data-value="wb" class="a11y-btn a11y-sw a11y-sw--wb" aria-label="Белым по чёрному">Ц</button>
+          <button type="button" data-a11y-set="color" data-value="blue" class="a11y-btn a11y-sw a11y-sw--blue" aria-label="Синим по голубому">Ц</button>
+        </div>
+        <div class="a11y-group" role="group" aria-label="Изображения">
+          <span class="a11y-label">Изображения</span>
+          <button type="button" data-a11y-set="img" data-value="on" class="a11y-btn a11y-btn--wide">Вкл</button>
+          <button type="button" data-a11y-set="img" data-value="off" class="a11y-btn a11y-btn--wide">Выкл</button>
+        </div>
+        <div class="a11y-group" role="group" aria-label="Интервал между буквами">
+          <span class="a11y-label">Интервал</span>
+          <button type="button" data-a11y-set="space" data-value="normal" class="a11y-btn a11y-btn--wide">Обычный</button>
+          <button type="button" data-a11y-set="space" data-value="wide" class="a11y-btn a11y-btn--wide">Большой</button>
+        </div>
+        <button type="button" class="a11y-btn a11y-btn--wide a11y-off" id="a11yOff">Обычная версия сайта</button>
+      </div>
     </div>
   </header>
 
@@ -73,7 +109,55 @@
             <a class="btn btn--soft btn--lg" href="#apply">Оставить заявку</a>
           </div>
         </div>
-        <div class="photo photo--hero"><span class="photo__tag">Фото: дом снаружи</span></div>
+        <figure class="ill-frame ill-frame--hero photo-slot" data-photo="hero">
+          <svg class="ill" viewBox="0 0 560 600" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Тёплый дом, у калитки встречают жильцы">
+            <defs><linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--sky-1)"/><stop offset=".75" style="stop-color:var(--sky-2)"/></linearGradient></defs>
+            <rect width="560" height="600" fill="url(#gSky)"/>
+            <g class="il-stars"><circle cx="70" cy="70" r="2"/><circle cx="150" cy="40" r="1.6"/><circle cx="240" cy="90" r="2"/><circle cx="320" cy="50" r="1.4"/><circle cx="520" cy="60" r="2"/><circle cx="500" cy="200" r="1.6"/><circle cx="40" cy="190" r="1.6"/></g>
+            <circle cx="430" cy="130" r="56" style="fill:var(--sun)"/>
+            <circle cx="430" cy="130" r="80" style="fill:var(--sun)" opacity=".18"/>
+            <g style="fill:var(--cloud)"><ellipse cx="120" cy="140" rx="54" ry="20"/><ellipse cx="150" cy="126" rx="34" ry="22"/><ellipse cx="300" cy="80" rx="40" ry="14"/><ellipse cx="322" cy="70" rx="24" ry="15"/></g>
+            <path d="M80 210q10-10 20 0q10-10 20 0M170 240q7-7 14 0q7-7 14 0" fill="none" style="stroke:var(--bird)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M0 400Q140 330 280 380T560 350V600H0Z" style="fill:var(--hill-2)"/>
+            <path d="M0 470Q280 430 560 470V600H0Z" style="fill:var(--hill-1)"/>
+            <rect x="330" y="215" width="26" height="70" rx="3" style="fill:var(--roof)"/>
+            <g style="fill:var(--cloud)" opacity=".85"><circle cx="346" cy="196" r="12"/><circle cx="360" cy="172" r="15"/><circle cx="380" cy="146" r="18"/></g>
+            <rect x="150" y="300" width="240" height="172" rx="6" style="fill:var(--wall)"/>
+            <path d="M126 314 270 196 414 314Z" style="fill:var(--roof)" stroke-linejoin="round"/>
+            <circle cx="270" cy="268" r="19" style="fill:var(--window)"/>
+            <rect x="176" y="338" width="60" height="54" rx="8" style="fill:var(--window)"/>
+            <rect x="304" y="338" width="60" height="54" rx="8" style="fill:var(--window)"/>
+            <path d="M206 338v54M176 365h60M334 338v54M304 365h60M270 249v38M251 268h38" style="stroke:var(--wall)" stroke-width="4"/>
+            <path d="M244 472v-56a26 26 0 0 1 52 0v56Z" style="fill:var(--door)"/>
+            <circle cx="285" cy="444" r="3.5" style="fill:var(--window)"/>
+            <path d="M244 472h52l46 128H196Z" style="fill:var(--path)"/>
+            <rect x="452" y="372" width="14" height="110" rx="5" style="fill:var(--trunk)"/>
+            <g style="fill:var(--leaf)"><circle cx="459" cy="350" r="50"/><circle cx="426" cy="388" r="34"/><circle cx="494" cy="386" r="34"/></g>
+            <g style="fill:var(--leaf-2)"><circle cx="110" cy="468" r="26"/><circle cx="78" cy="476" r="19"/><circle cx="140" cy="478" r="16"/></g>
+            <g style="fill:var(--wall)" opacity=".9"><rect x="16" y="470" width="10" height="44" rx="5"/><rect x="40" y="470" width="10" height="44" rx="5"/><rect x="510" y="470" width="10" height="44" rx="5"/><rect x="534" y="470" width="10" height="44" rx="5"/><rect x="10" y="482" width="50" height="7" rx="3"/><rect x="504" y="482" width="50" height="7" rx="3"/></g>
+            <g>
+              <path d="M184 520 212 486" style="stroke:var(--shirt-1)" stroke-width="13" stroke-linecap="round"/>
+              <circle cx="214" cy="482" r="8" style="fill:var(--skin)"/>
+              <rect x="146" y="562" width="13" height="30" rx="6" style="fill:var(--pants)"/><rect x="164" y="562" width="13" height="30" rx="6" style="fill:var(--pants)"/>
+              <rect x="138" y="500" width="48" height="70" rx="22" style="fill:var(--shirt-1)"/>
+              <circle cx="162" cy="482" r="18" style="fill:var(--skin)"/>
+              <path d="M144 478a18 18 0 0 1 36 0q-8-9-18-8t-18 8Z" style="fill:var(--hair)"/>
+            </g>
+            <g>
+              <rect x="362" y="560" width="13" height="32" rx="6" style="fill:var(--pants)"/><rect x="380" y="560" width="13" height="32" rx="6" style="fill:var(--pants)"/>
+              <rect x="352" y="496" width="52" height="72" rx="24" style="fill:var(--shirt-2)"/>
+              <circle cx="378" cy="476" r="19" style="fill:var(--skin-2)"/>
+              <path d="M359 474a19 19 0 0 1 38 0q-6-12-19-12t-19 12Z" style="fill:var(--hair)"/>
+              <rect x="396" y="530" width="26" height="22" rx="5" style="fill:var(--shirt-3)"/>
+            </g>
+            <g>
+              <ellipse cx="308" cy="590" rx="16" ry="5" fill="#000" opacity=".08"/>
+              <path d="M296 588c0-16 6-26 12-26s12 10 12 26Z" style="fill:var(--hair)"/>
+              <circle cx="308" cy="556" r="10" style="fill:var(--hair)"/><path d="M300 549l2-9 5 6M316 549l-2-9-5 6" style="fill:var(--hair)"/>
+            </g>
+          </svg>
+          <figcaption class="ill-frame__chip"><i>🏠</i>Заселяем в день звонка</figcaption>
+        </figure>
       </div>
       <div class="container">
         <ul class="facts">
@@ -121,7 +205,38 @@
 
     <section class="section section--gray" id="rules">
       <div class="container split">
-        <div class="photo photo--rules reveal"><span class="photo__tag">Фото: комната в доме</span></div>
+        <figure class="ill-frame ill-frame--room photo-slot reveal" data-photo="room">
+          <svg class="ill" viewBox="0 0 560 460" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Уютная комната с кроватью, лампой и растением">
+            <rect width="560" height="460" style="fill:var(--room-wall)"/>
+            <rect y="350" width="560" height="110" style="fill:var(--floor)"/>
+            <rect x="300" y="60" width="170" height="150" rx="10" style="fill:var(--sky-1)"/>
+            <circle cx="420" cy="110" r="26" style="fill:var(--sun)"/>
+            <path d="M300 180q60-30 170 0v30H300Z" style="fill:var(--hill-1)"/>
+            <path d="M385 60v150M300 135h170" style="stroke:var(--wall)" stroke-width="7"/>
+            <rect x="296" y="56" width="178" height="158" rx="12" fill="none" style="stroke:var(--wood)" stroke-width="8"/>
+            <path d="M280 48h210" style="stroke:var(--wood)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M286 52q-8 90 10 170h26q-20-80-12-170Z" style="fill:var(--blanket)" opacity=".85"/>
+            <path d="M484 52q8 90-10 170h-26q20-80 12-170Z" style="fill:var(--blanket)" opacity=".85"/>
+            <rect x="74" y="90" width="110" height="80" rx="8" style="fill:var(--wall)"/>
+            <rect x="84" y="100" width="90" height="60" rx="4" style="fill:var(--tint-sky, #dceafa)"/>
+            <path d="M84 160l30-30 22 18 16-12 22 24Z" style="fill:var(--leaf)"/>
+            <rect x="50" y="250" width="280" height="90" rx="14" style="fill:var(--wood)"/>
+            <rect x="40" y="200" width="24" height="170" rx="8" style="fill:var(--wood)"/>
+            <rect x="60" y="232" width="262" height="58" rx="16" style="fill:var(--wall)"/>
+            <rect x="72" y="214" width="76" height="40" rx="16" style="fill:var(--cloud)"/>
+            <path d="M140 236h182a14 14 0 0 1 14 14v52a14 14 0 0 1-14 14H140Z" style="fill:var(--blanket)"/>
+            <path d="M180 236v80M220 236v80M260 236v80M300 236v80" style="stroke:var(--blanket-2)" stroke-width="8" opacity=".7"/>
+            <rect x="346" y="276" width="70" height="74" rx="8" style="fill:var(--wood)"/>
+            <rect x="356" y="296" width="50" height="6" rx="3" style="fill:var(--room-wall)" opacity=".5"/>
+            <rect x="377" y="236" width="8" height="40" style="fill:var(--door)"/>
+            <path d="M360 240h42l-10-34h-22Z" style="fill:var(--lamp)"/>
+            <ellipse cx="381" cy="260" rx="60" ry="40" style="fill:var(--lamp)" opacity=".18"/>
+            <rect x="462" y="300" width="50" height="50" rx="8" style="fill:var(--roof)"/>
+            <g style="fill:var(--leaf)"><ellipse cx="470" cy="276" rx="14" ry="30" transform="rotate(-20 470 276)"/><ellipse cx="500" cy="272" rx="14" ry="32" transform="rotate(18 500 272)"/><ellipse cx="486" cy="262" rx="12" ry="36"/></g>
+            <ellipse cx="200" cy="410" rx="150" ry="26" style="fill:var(--blanket-2)" opacity=".55"/>
+          </svg>
+          <figcaption class="ill-frame__chip"><i>🛏️</i>Чистые комнаты на 2–4 человека</figcaption>
+        </figure>
         <div>
           <span class="eyebrow">Честные условия</span>
           <h2>Простые правила для всех</h2>

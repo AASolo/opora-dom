@@ -1,11 +1,46 @@
 (function () {
-  // Theme toggle (dark by default, choice remembered)
+  // Theme toggle (light by default, choice remembered)
   var root = document.documentElement;
   document.getElementById('themeToggle').addEventListener('click', function () {
-    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
+
+  // Version for the visually impaired: font size, colours, images, letter spacing
+  var a11yToggle = document.getElementById('a11yToggle');
+  var a11yPanel = document.getElementById('a11yPanel');
+  var A11Y_DEFAULT = { on: true, size: '1', color: 'bw', img: 'on', space: 'normal' };
+  var a11y = A11Y_DEFAULT;
+  try { a11y = JSON.parse(localStorage.getItem('a11y') || 'null') || { on: false }; } catch (e) { a11y = { on: false }; }
+
+  function applyA11y() {
+    if (a11y.on) {
+      root.setAttribute('data-a11y', '');
+      ['size', 'color', 'img', 'space'].forEach(function (k) { root.setAttribute('data-a11y-' + k, a11y[k] || A11Y_DEFAULT[k]); });
+    } else {
+      ['', '-size', '-color', '-img', '-space'].forEach(function (k) { root.removeAttribute('data-a11y' + k); });
+    }
+    a11yPanel.hidden = !a11y.on;
+    a11yToggle.setAttribute('aria-expanded', String(a11y.on));
+    a11yToggle.classList.toggle('is-active', a11y.on);
+    a11yPanel.querySelectorAll('[data-a11y-set]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(a11y[b.getAttribute('data-a11y-set')] === b.getAttribute('data-value')));
+    });
+    try { localStorage.setItem('a11y', JSON.stringify(a11y)); } catch (e) {}
+  }
+  a11yToggle.addEventListener('click', function () {
+    a11y = a11y.on ? { on: false } : Object.assign({}, A11Y_DEFAULT, a11y, { on: true });
+    applyA11y();
+  });
+  document.getElementById('a11yOff').addEventListener('click', function () { a11y = { on: false }; applyA11y(); a11yToggle.focus(); });
+  a11yPanel.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-a11y-set]');
+    if (!b) return;
+    a11y[b.getAttribute('data-a11y-set')] = b.getAttribute('data-value');
+    applyA11y();
+  });
+  applyA11y();
 
   var CITIES = [
     ['Саратов', 'Поволжье'], ['Пенза', 'Поволжье'], ['Самара', 'Поволжье'], ['Тольятти', 'Поволжье'],
